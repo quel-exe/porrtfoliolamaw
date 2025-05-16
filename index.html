@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quel's Portfolio</title>
+    <style>
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: Verdana, Geneva, Tahoma, sans-serif;
+            margin: 0;
+            padding: 0;
+            text-align: center;
+            background: linear-gradient(to bottom, white, rgb(180, 180, 180));
+            color: black;
+            overflow-x: hidden;
+        }
+
+        header {
+            background: #333;
+            color: white;
+            padding: 20px;
+            font-family: 'Courier New', Courier, monospace;
+        }
+
+        h2 {
+            font-family: 'Courier New', Courier, monospace;
+        }
+
+        nav {
+            background-color: #333;
+        }
+
+        nav ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+        }
+
+        nav ul li a {
+            display: block;
+            color: white;
+            text-align: center;
+            padding: 14px 16px;
+            text-decoration: none;
+        }
+
+        nav ul li a:hover {
+            background-color: #111;
+        }
+
+        .section {
+            max-width: 800px;
+            margin: 50px auto;
+            padding: 50px;
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            text-align: left;
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.6s ease, transform 0.6s ease;
+        }
+
+        .section.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .section.fade-out {
+            opacity: 0;
+            transform: translateY(30px);
+        }
+
+        .portfolio-item {
+            padding: 20px;
+            background: #ff9800;
+            transition: transform 0.3s ease;
+            color: white;
+            margin: 10px 0;
+        }
+
+        .portfolio-item:hover {
+            transform: scale(1.05);
+        }
+
+        .school-card {
+    position: relative;
+    width: 100%;
+    max-width: 800px;
+    margin: 20px auto;
+    height: 200px;
+    background-color: #ff9800;
+    border-radius: 12px;
+    overflow: hidden;
+    cursor: pointer;
+    transition: transform 0.3s ease, opacity 0.3s ease;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.school-card:hover {
+    transform: scale(1.05);
+    opacity: 0.9;
+}
+
+.school-card .school-info {
+    position: absolute;
+    z-index: 2;
+    text-align: center;
+    color: white;
+}
+
+.school-card .school-info h3 {
+    font-size: 1.5em;
+    margin: 0;
+}
+
+.school-card .school-info p {
+    font-size: 1.1em;
+}
+
+.school-card:before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-size: cover;
+    background-position: center;
+    opacity: 0;
+    transition: opacity 0.5s ease;
+}
+
+.school-card:hover:before {
+    opacity: 0.7;
+}
+
+/* For specific school images */
+.school-card:nth-child(1):before {
+    background-image: url('https://storage.googleapis.com/school_sites/spud/images/facilities/BED0144D3A-1721691920.jpg');
+}
+
+.school-card:nth-child(2):before {
+    background-image: url('https://example.com/pasig-catholic-high.jpg'); /* Replace with your image */
+}
+
+.school-card:nth-child(3):before {
+    background-image: url('https://example.com/tip.jpg'); /* Replace with your image */
+}
+
+
+        footer {
+            background: #333;
+            color: white;
+            padding: 20px;
+            position: relative;
+            bottom: 0;
+            width: 100%;
+        }
+
+        .profile-img {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin-top: 20px;
+            max-width: 100%;
+        }
+
+        button {
+            background: #ff9800;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        button:hover {
+            background: #e68900;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>My Portfolio</h1>
+        <img src= "https://scontent.fmnl31-1.fna.fbcdn.net/v/t39.30808-6/309165891_10210379097870709_6224618912991033399_n.jpg?_nc_cat=104&ccb=1-7&_nc_sid=6ee11a&_nc_ohc=Hdysza2vXwQQ7kNvwGPl8kw&_nc_oc=AdkwiyginOC9bmSa5xvgkmTSe_mwPkxX9ZTSyKwzUGKHD2ABndbHFyKm9gSQYNh8czw&_nc_zt=23&_nc_ht=scontent.fmnl31-1.fna&_nc_gid=eTJfRu_0Fgan2OwyXpm7Qg&oh=00_AfIEMMuBxKcVEajlIdmhBRw_a2JJTv92nJsb-cZTwmaHXQ&oe=682C50FC"
+             alt="Profile Picture" class="profile-img">
+    </header>
+
+    <nav>
+        <ul>
+            <li><a href="#about">About</a></li>
+            <li><a href="#portfolio">Portfolio</a></li>
+            <li><a href="#edbg">Education</a></li>
+            <li><a href="#work-experience">Experience</a></li>
+            <li><a href="#skills">Skills</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </nav>
+
+    <section class="section" id="about">
+        <h2>About Me</h2>
+        <h3>Quanico, Jose Daniel Exequel B.</h3>
+        <p>Birthdate: August 5, 2002</p>
+        <p>Address: Pasig, Metro Manila</p>
+        <p>I am a 2nd year student at Technological Institute of the Philippines.</p>
+        <a href="resume ni quan.pdf" download>
+            <button>Download Resume</button>
+        </a>
+    </section>
+
+    <section class="section" id="portfolio">
+        <h2>My Work</h2>
+        <div class="portfolio-item">Project 1: HAHA wla</div>
+        <div class="portfolio-item">Project 2: wala talaga</div>
+        <div class="portfolio-item">Project 3: wala parin</div>
+        <p>Currently a student with no professional work yet. Open to internships and project collaborations.</p>
+    </section>
+
+    <section class="section" id="edbg">
+        <h2>Educational Background</h2>
+        <div class="school-card" onclick="window.open('https://pasigcatholic.edu.ph/home', '_blank')">
+            <div class="school-info">
+                <h3>Pasig Catholic College</h3>
+                <p>Primary</p>
+            </div>
+        </div>
+        <div class="school-card" onclick="window.open('https://www.pasigcatholic.edu.ph', '_blank')">
+            <div class="school-info">
+                <h3>Pasig Catholic College</h3>
+                <p>Highschool - TVL-ICT</p>
+            </div>
+        </div>
+        <div class="school-card" onclick="window.open('https://www.tip.edu.ph', '_blank')">
+            <div class="school-info">
+                <h3>Technological Institute of the Philippines</h3>
+                <p>College - BS Computer Engineering</p>
+            </div>
+        </div>
+    </section>
+    
+
+    <section class="section" id="work-experience">
+        <h2>Work Experience</h2>
+        <p>Eliana G Foods Corporation - Jollibee, One Mercedes Plaza - Kitchen crew, Grillman</p>
+    </section>
+
+    <section class="section" id="skills">
+        <h2>Skills</h2>
+        <ul style="list-style-type: none; padding: 0;">
+            <li>• Programming (C++, Python, HTML, CSS)</li>
+            <li>• Web Development Basics</li>
+            <li>• Problem-Solving</li>
+            <li>• Communication Skills</li>
+            <li>• Teamwork and Collaboration</li>
+        </ul>
+    </section>
+
+    <section class="section" id="contact">
+        <h2>Contact Me</h2>
+        <p>Email: mjdequanico@tip.edu.ph</p>
+        <p>Cell No.: 09999012535</p>
+        <p>Social Links: <a href="https://www.facebook.com/exequel.quanico" target="_blank">Facebook</a></p>
+    </section>
+
+    <footer>
+        <p>&copy; 2025 My Portfolio. by Quel lmao.</p>
+    </footer>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            // Smooth Scroll
+            document.querySelectorAll('nav ul li a').forEach(anchor => {
+                anchor.addEventListener('click', function (event) {
+                    event.preventDefault();
+                    const targetId = this.getAttribute('href').substring(1);
+                    const targetSection = document.getElementById(targetId);
+                    if (targetSection) {
+                        targetSection.scrollIntoView({ behavior: 'smooth' });
+                    }
+                });
+            });
+
+            // Fade Effects
+            const sections = document.querySelectorAll(".section");
+
+            const observer = new IntersectionObserver(entries => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add("visible");
+                        entry.target.classList.remove("fade-out");
+                    } else {
+                        entry.target.classList.add("fade-out");
+                    }
+                });
+            }, { threshold: 0.1 });
+
+            sections.forEach(section => observer.observe(section));
+        });
+    </script>
+</body>
+</html>
